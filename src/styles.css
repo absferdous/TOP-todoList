@@ -1,0 +1,6 @@
+.container {
+  box-sizing: border-box;
+  width: clamp(80%, 90vw, 1280px);
+  margin-inline: auto;
+  background-color: rgb(221, 157, 30);
+}
