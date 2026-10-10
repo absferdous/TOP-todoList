@@ -28,7 +28,14 @@ export const renderTodo = (arr) => {
     const todotitlecontent = document.createElement("p");
     todotitlecontent.classList.add("title-content");
     todotitlecontent.textContent = item.title;
-    todoList.append(todotitlecontent);
+
+    const todoDescriptionContent = document.createElement("p");
+    todoDescriptionContent.classList.add("desc-content");
+    if (item.description) {
+      todoDescriptionContent.textContent = item.description;
+    }
+
+    todoList.append(todotitlecontent, todoDescriptionContent);
 
     const deleteBtn = createBtn("deleteBtn", "delete", () => {
       handleDelete(item.id, currentTodo);
