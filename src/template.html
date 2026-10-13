@@ -6,13 +6,41 @@
     <title>MyTodo</title>
   </head>
   <body>
-    <h1>HEllo this is todo list</h1>
-    <input type="text" id="title-input" />
-    <button id="title-btn">add todo</button>
-    <div class="todo-desc">
-      <label for="description">description:</label>
-      <textarea id="description" placeholder="description"></textarea>
+    <div class="input-container">
+      <h1 class="main-title">
+        Add your <span class="title-span">TODO`s</span>
+      </h1>
+      <div class="todo-section">
+        <div class="input-tile-container">
+          <label for="description" class="label-content">
+            <p>
+              Title
+              <span class="colon-span">:</span>
+            </p></label
+          >
+          <input type="text" id="title-input" />
+        </div>
+        <div class="desc-container">
+          <label for="desc" class="label-content"
+            >Description<span class="colon-span">:</span></label
+          >
+          <div class="todo-desc">
+            <textarea
+              id="description"
+              placeholder="description"
+              cols="50"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
+        <div class="add-button-container">
+          <button id="title-btn">
+            <span class="span-sign">+</span>
+          </button>
+        </div>
+      </div>
     </div>
+
     <div class="container">
       <div class="list-container"></div>
     </div>

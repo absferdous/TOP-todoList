@@ -21,6 +21,8 @@ export const renderTodo = (arr) => {
   let renderArray = currentTodo.map((item) => {
     const todoContainer = document.createElement("div");
     todoContainer.classList.add("todo-container");
+    const todoBtnContainer = document.createElement("div");
+    todoBtnContainer.classList.add("todo-btn-container");
     // const id = id;
     const todoList = document.createElement("li");
     todoList.classList.add("todo-list");
@@ -43,13 +45,14 @@ export const renderTodo = (arr) => {
 
     console.log("editing", isEditing);
     const editBtn = createBtn("editBtn", "edit", () => {
-      handleEdit(item.id, isEditing, todoList, currentTodo);
+      handleEdit(item.id, isEditing, todoContainer, currentTodo);
     });
-
-    todoList.append(deleteBtn, editBtn);
+    todoBtnContainer.append(deleteBtn, editBtn);
+    todoList.append(todoBtnContainer);
+    todoContainer.append(todoList);
     // ul.append(todoList);
     // listcontainer.append(ul);
-    mainContianer.append(todoList);
+    mainContianer.append(todoContainer);
     return todoList;
   });
   console.log("render function callled", renderArray);
@@ -81,9 +84,9 @@ const handleEdit = (id, editingSatte, element, arr) => {
   console.log("element", editingElement);
 
   const inputGroup = createInputGroup();
+  // editingElement.replaceWith(inputGroup);
   isEditing = true;
   if (isEditing) {
-    // editingElement.replaceWith(inputGroup);
     editedArray = arr.map((item) => {
       if (editingId === item.id) {
         inputGroup.inputBar.value = item.title;

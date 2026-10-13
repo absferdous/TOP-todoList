@@ -1,6 +1,148 @@
-.container {
+body {
   box-sizing: border-box;
-  width: clamp(80%, 90vw, 1280px);
-  margin-inline: auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  margin-inline: 0;
   background-color: rgb(221, 157, 30);
+}
+.todo-container {
+  background-color: white;
+}
+.main-title {
+  font-size: 70px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 800;
+}
+.title-span {
+  background-color: whitesmoke;
+  color: rgb(255, 69, 0);
+  padding: 2px;
+  border: 2px solid white;
+  border-radius: 8px;
+  font-family: cursive;
+}
+.title-section {
+  width: min(90%, 480px);
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 10px;
+}
+button#title-btn {
+  margin-top: 15px;
+  /* padding: 1px 0rem; */
+  background: orangered;
+  color: white;
+  /* width: min(100%, 220px); */
+  text-align: center;
+  font-weight: 600;
+  font-size: min(17px, 1rem);
+  font-family: system-ui;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+input#title-input {
+  width: min(90%, 420px);
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: min(20px, 1rem);
+  height: 20px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: min(100%, 900px);
+  align-items: center;
+}
+.todo-desc {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 1rem; */
+  margin-top: 1rem;
+  align-items: start;
+}
+label.description {
+  font-size: 30px;
+  font-weight: 700;
+}
+textarea#description {
+  border: 2px solid black;
+  border-radius: 8px;
+}
+.label-content {
+  font-size: 20px;
+  font-family: cursive;
+  color: aliceblue;
+}
+.input-tile-container,
+.desc-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.colon-span {
+  font-weight: 700;
+}
+.span-sign {
+  /* border: 2px solid whitesmoke; */
+  border-radius: 20%;
+  padding: 2px 8px;
+  margin-inline: auto;
+  font-size: 1rem;
+  font-weight: 800;
+  align-items: center;
+  /* width: 100px; */
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.todo-container {
+  width: min(100%-2rem, 400px);
+  background-color: white;
+  border: 2px solid wheat;
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 10px;
+  list-style: none;
+}
+.title-content {
+  font-family: cursive;
+  font-size: min(20px, 40px);
+  font-weight: 500;
+}
+.desc-content {
+  font-family: "Courier New", Courier, monospace;
+  font-size: min(15px, 30px);
+}
+
+.deleteBtn {
+  color: white;
+  background-color: red;
+}
+.editBtn {
+  color: white;
+  background-color: slateblue;
+}
+.save-btn {
+  color: white;
+  background-color: cadetblue;
+}
+.todo-btn-container {
+  display: flex;
+  gap: 3px;
+}
+.deleteBtn,
+.editBtn,
+.save-btn {
+  border-radius: 8px;
 }
