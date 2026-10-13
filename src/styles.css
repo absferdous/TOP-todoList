@@ -10,6 +10,11 @@ body {
 .todo-container {
   background-color: white;
 }
+.main-parent-container {
+  width: min(100% - 2rem, 1200px);
+  display: flex;
+  justify-content: space-evenly;
+}
 .main-title {
   font-size: 70px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

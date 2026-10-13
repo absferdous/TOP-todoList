@@ -4,7 +4,7 @@ import { addTitleBtn, titleInputBox, todoDescription } from "./domelements";
 import { createNewTodo } from "./addTodos";
 import { renderTodo } from "./renderTodo";
 
-const todoArray = [];
+export const todoArray = [];
 addTitleBtn.addEventListener("click", (e) => {
   let title = titleInputBox.value.trim();
 
@@ -18,12 +18,5 @@ addTitleBtn.addEventListener("click", (e) => {
   titleInputBox.focus();
   // todoDescription.focus();
 
-  // console.log(todoArray);
+  console.log("todoarray after add btn is clicked", todoArray);
 });
-
-// export const storeTodo = (todo) => {
-//   const todolistArray = [];
-//   todolistArray.push(todo);
-//   console.log("from storeTodo function", todolistArray);
-//   return todolistArray;
-// };

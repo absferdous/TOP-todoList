@@ -1,4 +1,5 @@
 // import { todoArray } from ".";
+import { todoArray } from ".";
 import {
   createBtn,
   createInputGroup,
@@ -40,7 +41,18 @@ export const renderTodo = (arr) => {
     todoList.append(todotitlecontent, todoDescriptionContent);
 
     const deleteBtn = createBtn("deleteBtn", "delete", () => {
-      handleDelete(item.id, currentTodo);
+      // handleDelete(item.id, currentTodo);
+
+      let fitteredArray = currentTodo.filter((current) => {
+        return current.id !== item.id;
+      });
+
+      console.log("value from maintodoarray after every click", todoArray);
+
+      renderTodo(fitteredArray);
+      todoArray.length = 0;
+      todoArray.push(...fitteredArray);
+      // todoArray = fitteredArray;
     });
 
     console.log("editing", isEditing);
@@ -56,24 +68,29 @@ export const renderTodo = (arr) => {
     return todoList;
   });
   console.log("render function callled", renderArray);
-  return renderArray;
+  return currentTodo;
 
   // const { title, description, id } = todo;
 };
 
-const handleDelete = (id, arr) => {
-  // alert("dlete");
-  console.log("from handle delete", arr);
+// const handleDelete = (id, arr) => {
+//   const index = arr.findIndex((item) => item.id === item);
+//   // alert("dlete");
+//   console.log("from handle delete", arr);
 
-  const filteredArray = arr.filter((item) => {
-    return item.id !== id;
-  });
+//   if (index !== -1) {
+//     arr.splice(index, 1);
+//   }
 
-  renderTodo(filteredArray);
-  console.log("current", arr);
-  console.log("filteredArray", filteredArray);
-  return filteredArray;
-};
+//   const filteredArray = arr.filter((item) => {
+//     return item.id !== id;
+//   });
+
+//   renderTodo(filteredArray);
+//   console.log("current", arr);
+//   console.log("filteredArray", filteredArray);
+//   // return filteredArray;
+// };
 const handleEdit = (id, editingSatte, element, arr) => {
   let isEditing = editingSatte;
   let editingId = id;
