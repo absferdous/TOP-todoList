@@ -1,5 +1,6 @@
 // import { todoArray } from ".";
 import { todoArray } from ".";
+import { addDays } from "date-fns";
 import {
   createBtn,
   createInputGroup,
@@ -32,13 +33,17 @@ export const renderTodo = (arr) => {
     todotitlecontent.classList.add("title-content");
     todotitlecontent.textContent = item.title;
 
+    const todoCreateed = document.createElement("p");
+    todoCreateed.classList.add("todo-time");
+    todoCreateed.textContent = item.created;
+
     const todoDescriptionContent = document.createElement("p");
     todoDescriptionContent.classList.add("desc-content");
     if (item.description) {
       todoDescriptionContent.textContent = item.description;
     }
 
-    todoList.append(todotitlecontent, todoDescriptionContent);
+    todoList.append(todotitlecontent, todoDescriptionContent, todoCreateed);
 
     const deleteBtn = createBtn("deleteBtn", "delete", () => {
       // handleDelete(item.id, currentTodo);
@@ -54,12 +59,21 @@ export const renderTodo = (arr) => {
       todoArray.push(...fitteredArray);
       // todoArray = fitteredArray;
     });
+    const completeBtn = createBtn("completeBtn", "complete", () => {
+      item.completed = true;
+      if (item.completed) {
+        completeBtn.textContent = "Done";
+        completeBtn.style.backgroundColor = "green";
+        todotitlecontent.style.textDecoration = "line-through";
+        todotitlecontent.style.color = "grey";
+      }
+    });
 
     console.log("editing", isEditing);
     const editBtn = createBtn("editBtn", "edit", () => {
       handleEdit(item.id, isEditing, todoContainer, currentTodo);
     });
-    todoBtnContainer.append(deleteBtn, editBtn);
+    todoBtnContainer.append(deleteBtn, editBtn, completeBtn);
     todoList.append(todoBtnContainer);
     todoContainer.append(todoList);
     // ul.append(todoList);
