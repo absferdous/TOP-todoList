@@ -4,6 +4,9 @@ export const todoDescription = document.querySelector("#description");
 export const mainContianer = document.querySelector(".container");
 export const editBtn = document.querySelector("#edit-btn");
 export const listcontainer = document.querySelector("list-container");
+export const addNote = document.querySelector("#note-btn");
+export const addBtncontainer = document.querySelector(".add-button-container");
+
 export const createBtn = (className, text, callback) => {
   const btn = document.createElement("button");
   btn.classList.add(className);
@@ -15,6 +18,7 @@ export const createBtn = (className, text, callback) => {
   );
   return btn;
 };
+// export const addBtncontainer = document.querySelector(".add-button-container");
 
 export const createSingleTodoUi = () => {
   console.log("createSingleTodoUi function callled");
@@ -55,4 +59,10 @@ export const createInputGroup = () => {
     saveBtn,
     descbar,
   };
+};
+
+export const createTickmark = () => {
+  const tickBtn = document.createElement("btn");
+  tickBtn.classList.add("tickBtn");
+  tickBtn.textContent = tick;
 };

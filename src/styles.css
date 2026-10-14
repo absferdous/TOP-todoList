@@ -14,11 +14,16 @@ body {
   width: min(100% - 2rem, 1200px);
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
 }
 .main-title {
-  font-size: 70px;
+  font-size: 30px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
 }
 .title-span {
   background-color: whitesmoke;
@@ -35,11 +40,13 @@ body {
   gap: 10px;
 }
 button#title-btn {
-  margin-top: 15px;
-  /* padding: 1px 0rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background: orangered;
   color: white;
-  /* width: min(100%, 220px); */
+
   text-align: center;
   font-weight: 600;
   font-size: min(17px, 1rem);
@@ -48,7 +55,7 @@ button#title-btn {
   border-radius: 10px;
 }
 input#title-input {
-  width: min(90%, 420px);
+  width: min(90%, 720px);
   border: 2px solid black;
   border-radius: 8px;
   font-size: min(20px, 1rem);
@@ -56,9 +63,9 @@ input#title-input {
 }
 .input-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-  width: min(100%, 900px);
+  /* width: min(100%, 900px); */
   align-items: center;
 }
 .todo-desc {
@@ -94,16 +101,11 @@ textarea#description {
 .span-sign {
   /* border: 2px solid whitesmoke; */
   border-radius: 20%;
-  padding: 2px 8px;
-  margin-inline: auto;
+  padding: 2px 4px;
+
   font-size: 1rem;
   font-weight: 800;
-  align-items: center;
-  /* width: 100px; */
-  text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 1.5px;
 }
 
 .add-button-container {
@@ -150,4 +152,26 @@ textarea#description {
 .editBtn,
 .save-btn {
   border-radius: 8px;
+}
+img.tick-icon {
+  width: 32px;
+  display: none;
+  position: absolute;
+  right: 4rem;
+}
+
+.titlediv {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  align-items: flex-start;
+  gap: 15rem;
+}
+button#note-btn {
+  padding: 4px 4px;
+  min-width: auto;
+  margin-left: 1rem;
+  border-radius: 8px;
+  color: yellow;
+  background: aqua;
 }

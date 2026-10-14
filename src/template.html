@@ -7,20 +7,21 @@
   </head>
   <body>
     <div class="main-parent-container">
+      <div class="main-title">
+        <span class="title-span">TODO`s</span>
+        <input type="text" id="title-input" />
+        <div class="add-button-container">
+          <button id="title-btn">
+            <span class="span-sign">+</span>
+          </button>
+          <!-- <button id="note-btn">
+            <span class="span-sign">Add notes</span>
+          </button> -->
+        </div>
+      </div>
       <div class="input-container">
-        <h1 class="main-title">
-          Add your <span class="title-span">TODO`s</span>
-        </h1>
         <div class="todo-section">
-          <div class="input-tile-container">
-            <label for="description" class="label-content">
-              <p>
-                Title
-                <span class="colon-span">:</span>
-              </p></label
-            >
-            <input type="text" id="title-input" />
-          </div>
+          <!-- <div class="input-tile-container"></div> -->
           <div class="desc-container">
             <label for="desc" class="label-content"
               >Description<span class="colon-span">:</span></label
@@ -33,11 +34,6 @@
                 rows="2"
               ></textarea>
             </div>
-          </div>
-          <div class="add-button-container">
-            <button id="title-btn">
-              <span class="span-sign">+</span>
-            </button>
           </div>
         </div>
       </div>

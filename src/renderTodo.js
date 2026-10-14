@@ -1,7 +1,9 @@
 // import { todoArray } from ".";
 import { todoArray } from ".";
 import { addDays } from "date-fns";
+import tickUrl from "./images/tick.png";
 import {
+  addNote,
   createBtn,
   createInputGroup,
   createSingleTodoUi,
@@ -12,6 +14,8 @@ import {
 } from "./domelements";
 
 let isEditing = false;
+let addnotes = false;
+// let todoDescriptionContent;
 export const renderTodo = (arr) => {
   let currentTodo;
   mainContianer.innerHTML = "";
@@ -29,9 +33,16 @@ export const renderTodo = (arr) => {
     const todoList = document.createElement("li");
     todoList.classList.add("todo-list");
 
+    const titlediv = document.createElement("div");
+    titlediv.classList.add("titlediv");
     const todotitlecontent = document.createElement("p");
     todotitlecontent.classList.add("title-content");
     todotitlecontent.textContent = item.title;
+
+    const tick = document.createElement("img");
+    tick.classList.add("tick-icon");
+    tick.src = tickUrl;
+    titlediv.append(todotitlecontent, tick);
 
     const todoCreateed = document.createElement("p");
     todoCreateed.classList.add("todo-time");
@@ -43,7 +54,12 @@ export const renderTodo = (arr) => {
       todoDescriptionContent.textContent = item.description;
     }
 
-    todoList.append(todotitlecontent, todoDescriptionContent, todoCreateed);
+    todoList.append(
+      titlediv,
+
+      todoDescriptionContent,
+      todoCreateed,
+    );
 
     const deleteBtn = createBtn("deleteBtn", "delete", () => {
       // handleDelete(item.id, currentTodo);
@@ -66,13 +82,19 @@ export const renderTodo = (arr) => {
         completeBtn.style.backgroundColor = "green";
         todotitlecontent.style.textDecoration = "line-through";
         todotitlecontent.style.color = "grey";
+        tick.style.display = "block";
       }
+    });
+
+    const noteBtn = createBtn("noteBtn", "Add Notes", () => {
+      alert("clicked");
     });
 
     console.log("editing", isEditing);
     const editBtn = createBtn("editBtn", "edit", () => {
       handleEdit(item.id, isEditing, todoContainer, currentTodo);
     });
+
     todoBtnContainer.append(deleteBtn, editBtn, completeBtn);
     todoList.append(todoBtnContainer);
     todoContainer.append(todoList);
@@ -169,3 +191,6 @@ const handleEdit = (id, editingSatte, element, arr) => {
 };
 
 // createInputGroup();
+// addNote.addEventListener("click", () => {
+//   todoDescriptionContent.style.display = "none";
+// });

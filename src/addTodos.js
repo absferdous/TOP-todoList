@@ -1,4 +1,5 @@
 import { addTitleBtn, titleInputBox, todoDescription } from "./domelements";
+import { format, formatDistance, subDays } from "date-fns";
 
 export const canCreateNewTodo = (title = "", description = "") => ({
   title,
@@ -6,7 +7,7 @@ export const canCreateNewTodo = (title = "", description = "") => ({
   description,
 
   id: generateUUID(),
-  created: new Date(),
+  created: format(new Date(), "yyyy-MM-dd HH:mm"),
   completed: false,
 
   // console.log({ todotitle, tododescription })
@@ -31,4 +32,8 @@ function generateUUID() {
   );
 }
 
-function formatDate() {}
+function formatDate() {
+  const date = formatDistance(subDays(new Date(), 3), new Date(), {
+    addSuffix: true,
+  });
+}
