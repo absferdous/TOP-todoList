@@ -1,11 +1,13 @@
 export const titleInputBox = document.querySelector("#title-input");
 export const addTitleBtn = document.querySelector("#title-btn");
 export const todoDescription = document.querySelector("#description");
+export const todoDescriptionContainer = document.querySelector(".todo-desc");
 export const mainContianer = document.querySelector(".container");
 export const editBtn = document.querySelector("#edit-btn");
 export const listcontainer = document.querySelector("list-container");
 export const addNote = document.querySelector("#note-btn");
 export const addBtncontainer = document.querySelector(".add-button-container");
+export const saveNote = document.querySelector(".save-note");
 
 export const createBtn = (className, text, callback) => {
   const btn = document.createElement("button");

@@ -32,13 +32,18 @@ addTitleBtn.addEventListener("click", (e) => {
 
   let description = todoDescription.value.trim();
   e.stopPropagation();
-  const newtodo = createNewTodo(title, description);
+  if (title) {
+    const newtodo = createNewTodo(title, description);
+    todoArray.push(newtodo);
+    renderTodo(todoArray);
+    titleInputBox.value = "";
+    todoDescription.value = "";
+    titleInputBox.focus();
+  } else {
+    alert("add something");
+  }
   setValues();
-  todoArray.push(newtodo);
-  renderTodo(todoArray);
-  titleInputBox.value = "";
-  todoDescription.value = "";
-  titleInputBox.focus();
+
   // todoDescription.focus();
 
   console.log("todoarray after add btn is clicked", todoArray);

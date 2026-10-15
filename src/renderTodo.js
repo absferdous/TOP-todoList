@@ -3,6 +3,7 @@ import { todoArray } from ".";
 import { addDays } from "date-fns";
 import tickUrl from "./images/tick.png";
 import {
+  addBtncontainer,
   addNote,
   createBtn,
   createInputGroup,
@@ -10,7 +11,10 @@ import {
   createUL,
   listcontainer,
   mainContianer,
+  saveNote,
   titleInputBox,
+  todoDescription,
+  todoDescriptionContainer,
 } from "./domelements";
 
 let isEditing = false;
@@ -86,16 +90,44 @@ export const renderTodo = (arr) => {
       }
     });
 
-    const noteBtn = createBtn("noteBtn", "Add Notes", () => {
-      alert("clicked");
-    });
-
-    console.log("editing", isEditing);
     const editBtn = createBtn("editBtn", "edit", () => {
       handleEdit(item.id, isEditing, todoContainer, currentTodo);
     });
 
-    todoBtnContainer.append(deleteBtn, editBtn, completeBtn);
+    const noteBtn = createBtn("noteBtn", "add notes", () => {
+      todoDescriptionContainer.style.display = "block";
+      todoDescription.focus();
+      titleInputBox.value = item.title;
+      // console.log(newNote);
+
+      saveNote.addEventListener("click", () => {
+        let newNote = todoDescription.value;
+        alert("note");
+        let notesArr = currentTodo.map((currentItem) => {
+          if (item.id === currentItem.id) {
+            return {
+              ...currentItem,
+              description: newNote,
+            };
+          }
+          return currentItem;
+        });
+        renderTodo(notesArr);
+        todoDescriptionContainer.style.display = "none";
+        titleInputBox.value = "";
+      });
+    });
+    noteBtn.id = "note-btn";
+    // const noteBtn = createBtn("add-note-btn", "Add notes", () => {
+    //   alert("clicked");
+    //   addnotes = true;
+    //   if (addnotes) {
+    //     todoDescription.focus();
+    //   }
+    // });
+    // noteBtn.id = "note-btn";
+    // addBtncontainer.append(noteBtn);
+    todoBtnContainer.append(deleteBtn, editBtn, completeBtn, noteBtn);
     todoList.append(todoBtnContainer);
     todoContainer.append(todoList);
     // ul.append(todoList);

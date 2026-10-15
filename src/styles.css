@@ -99,7 +99,6 @@ textarea#description {
   font-weight: 700;
 }
 .span-sign {
-  /* border: 2px solid whitesmoke; */
   border-radius: 20%;
   padding: 2px 4px;
 
@@ -174,4 +173,7 @@ button#note-btn {
   border-radius: 8px;
   color: yellow;
   background: aqua;
+}
+.todo-desc {
+  display: none;
 }
