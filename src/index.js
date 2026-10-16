@@ -5,6 +5,8 @@ import { createNewTodo } from "./addTodos";
 import { renderTodo } from "./renderTodo";
 
 export const todoArray = JSON.parse(localStorage.getItem("todos")) || [];
+export const completedTodos =
+  JSON.parse(localStorage.getItem("completedTodo")) || [];
 renderTodo(todoArray);
 addTitleBtn.addEventListener("click", (e) => {
   let title = titleInputBox.value.trim();

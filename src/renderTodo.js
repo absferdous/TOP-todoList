@@ -81,17 +81,26 @@ export const renderTodo = (arr) => {
       localStorage.setItem("todos", JSON.stringify(todoArray));
       // todoArray = fitteredArray;
     });
+
     const completeBtn = createBtn("completeBtn", "complete", () => {
-      item.completed = true;
-      if (item.completed) {
-        completeBtn.textContent = "Done";
-        completeBtn.style.backgroundColor = "green";
-        todotitlecontent.style.textDecoration = "line-through";
-        todotitlecontent.style.color = "grey";
-        tick.style.display = "block";
-        editBtn.style.display = "none";
-        noteBtn.style.display = "none";
-      }
+      let completedArr = currentTodo.map((currentItem) => {
+        if (item.id === currentItem.id) {
+          return {
+            ...currentItem,
+            completed: true,
+          };
+        }
+        return currentItem;
+      });
+
+      // let completedArr = currentTodo.filter((currentItem) => {
+      //   return currentItem.id !== item.id;
+      // });
+      // item.completed = true;
+      todoArray.length = 0;
+      todoArray.push(...completedArr);
+      localStorage.setItem("todos", JSON.stringify(todoArray));
+      renderTodo(todoArray);
     });
 
     const editBtn = createBtn("editBtn", "edit", () => {
@@ -125,6 +134,21 @@ export const renderTodo = (arr) => {
       });
     });
     noteBtn.id = "note-btn";
+    if (item.completed) {
+      completeBtn.textContent = "Done";
+      completeBtn.style.backgroundColor = "green";
+      todotitlecontent.style.textDecoration = "line-through";
+      todotitlecontent.style.color = "grey";
+      tick.style.display = "block";
+      editBtn.style.display = "none";
+      noteBtn.style.display = "none";
+    } else {
+      completeBtn.textContent = "complete";
+      completeBtn.style.backgroundColor = "white";
+      todotitlecontent.style.textDecoration = "none";
+      todotitlecontent.style.color = "black";
+      tick.style.display = "none";
+    }
     // const noteBtn = createBtn("add-note-btn", "Add notes", () => {
     //   alert("clicked");
     //   addnotes = true;
