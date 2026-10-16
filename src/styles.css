@@ -98,6 +98,24 @@ textarea#description {
 .colon-span {
   font-weight: 700;
 }
+.input-group-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-inline: auto;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+}
+.input-field-Container {
+  display: flex;
+  flex-direction: column;
+  /* align-content: center; */
+  /* justify-content: space-around; */
+  gap: 1rem;
+  width: 100%;
+}
 .span-sign {
   border-radius: 20%;
   padding: 2px 4px;
@@ -120,6 +138,8 @@ textarea#description {
   margin: 1rem;
   padding: 10px;
   list-style: none;
+  display: flex;
+  align-items: center;
 }
 .title-content {
   font-family: cursive;
@@ -141,7 +161,10 @@ textarea#description {
 }
 .save-btn {
   color: white;
-  background-color: cadetblue;
+  background-color: #186e56;
+  margin: 9px;
+  padding: 8px 55px;
+  font-size: 16px;
 }
 .todo-btn-container {
   display: flex;

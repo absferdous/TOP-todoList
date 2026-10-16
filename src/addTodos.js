@@ -9,6 +9,7 @@ export const canCreateNewTodo = (title = "", description = "") => ({
   id: generateUUID(),
   created: format(new Date(), "yyyy-MM-dd HH:mm"),
   completed: false,
+  editing: false,
 
   // console.log({ todotitle, tododescription })
 });

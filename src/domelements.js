@@ -43,19 +43,27 @@ export const createUL = () => {
   return ul;
 };
 
-export const createInputGroup = () => {
+export const createInputGroup = (container) => {
+  const inputgroupContainer = document.createElement("div");
+  inputgroupContainer.classList.add("input-group-container");
+  const inputfieldContainer = document.createElement("div");
+  inputfieldContainer.classList.add("input-field-Container");
+
   const inputBar = document.createElement("input");
   inputBar.classList.add("input-bar-edit");
   inputBar.id = "title-input";
+
+  const descbar = document.createElement("textarea");
+  descbar.classList.add("descbar-edit");
+  descbar.id = "description";
   const saveBtn = document.createElement("button");
   saveBtn.classList.add("save-btn");
   saveBtn.textContent = "save";
   saveBtn.id = "save-btn";
-  const descbar = document.createElement("textarea");
-  descbar.classList.add("descbar-edit");
-  descbar.id = "description";
 
-  mainContianer.append(inputBar, saveBtn, descbar);
+  inputfieldContainer.append(inputBar, descbar);
+  inputgroupContainer.append(inputfieldContainer, saveBtn);
+  container.append(inputgroupContainer);
   return {
     inputBar,
     saveBtn,
