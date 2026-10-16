@@ -89,6 +89,8 @@ export const renderTodo = (arr) => {
         todotitlecontent.style.textDecoration = "line-through";
         todotitlecontent.style.color = "grey";
         tick.style.display = "block";
+        editBtn.style.display = "none";
+        noteBtn.style.display = "none";
       }
     });
 
