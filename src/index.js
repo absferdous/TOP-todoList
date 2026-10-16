@@ -4,29 +4,8 @@ import { addTitleBtn, titleInputBox, todoDescription } from "./domelements";
 import { createNewTodo } from "./addTodos";
 import { renderTodo } from "./renderTodo";
 
-export const todoArray = [];
-
-export const populateStorage = () => {
-  localStorage.setItem("title", titleInputBox.value);
-  localStorage.setItem("description", todoDescription.value);
-  // localStorage.setItem('completed',titleInputBox.value);
-  // localStorage.setItem('title',titleInputBox.value);
-};
-if (!localStorage.getItem("title")) {
-  populateStorage();
-} else {
-  setValues();
-}
-export const setValues = () => {
-  let currentitle = localStorage.getItem("title");
-  let currentDescription = localStorage.getItem("description");
-
-  titleInputBox.value = currentitle;
-  todoDescription.value = currentDescription;
-
-  console.log(`[LocalStorage Set] Key: "${currentitle}" | Value:`);
-};
-
+export const todoArray = JSON.parse(localStorage.getItem("todos")) || [];
+renderTodo(todoArray);
 addTitleBtn.addEventListener("click", (e) => {
   let title = titleInputBox.value.trim();
 
@@ -35,6 +14,7 @@ addTitleBtn.addEventListener("click", (e) => {
   if (title) {
     const newtodo = createNewTodo(title, description);
     todoArray.push(newtodo);
+    localStorage.setItem("todos", JSON.stringify(todoArray));
     renderTodo(todoArray);
     titleInputBox.value = "";
     todoDescription.value = "";
@@ -42,7 +22,6 @@ addTitleBtn.addEventListener("click", (e) => {
   } else {
     alert("add something");
   }
-  setValues();
 
   // todoDescription.focus();
 

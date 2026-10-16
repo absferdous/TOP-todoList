@@ -76,7 +76,9 @@ export const renderTodo = (arr) => {
 
       renderTodo(fitteredArray);
       todoArray.length = 0;
+
       todoArray.push(...fitteredArray);
+      localStorage.setItem("todos", JSON.stringify(todoArray));
       // todoArray = fitteredArray;
     });
     const completeBtn = createBtn("completeBtn", "complete", () => {
@@ -113,6 +115,9 @@ export const renderTodo = (arr) => {
           return currentItem;
         });
         renderTodo(notesArr);
+        todoArray.length = 0;
+        todoArray.push(...notesArr);
+        localStorage.setItem("todos", JSON.stringify(todoArray));
         todoDescriptionContainer.style.display = "none";
         titleInputBox.value = "";
       });
@@ -218,6 +223,10 @@ const handleEdit = (id, editingSatte, element, arr) => {
     // const editedtitle = document.querySelector(".input-bar-edit");
     console.log("editedArray", editedArray);
   }
+  todoArray.length = 0;
+
+  todoArray.push(...editedArray);
+  localStorage.setItem("todos", JSON.stringify(todoArray));
   console.log("handleedit clicked", isEditing);
   return editedArray;
 };
